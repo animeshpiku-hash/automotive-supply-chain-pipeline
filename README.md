@@ -5,7 +5,6 @@ End-to-end data engineering pipeline implementing medallion architecture (bronze
 
 ## Architecture
 Data Sources → Azure Data Lake (Bronze) → Databricks (Silver) → Databricks (Gold) → Analytics/BI
-
 ## Tech Stack
 - **Cloud:** Azure
 - **Storage:** Azure Data Lake Storage Gen2
@@ -23,20 +22,16 @@ Data Sources → Azure Data Lake (Bronze) → Databricks (Silver) → Databricks
 Coming soon - Week 1 in progress!
 
 ## Project Structure
-.
 ├── notebooks/          # Databricks notebooks
 ├── data/              # Sample data files
 ├── docs/              # Documentation
 └── README.md          # This file
-
 ## Progress Log
 - [x] Day 1: Azure setup (ADLS Gen2, Resource Group)
 - [x] Day 2: Databricks workspace + GitHub setup
-- [x] Day 3: Bronze layer implementation ✨
-  - Connected ADLS to Databricks (ABFS method)
-  - Loaded supplier delivery data (10 records)
-  - Created bronze Delta table with audit columns
+- [ ] Day 3: Bronze layer implementation
 - [ ] Day 4: Silver layer implementation
+- [ ] Day 5-7: Gold layer + documentation
 
 ## Author
 Animesh Mishra - Data Engineer in Training
