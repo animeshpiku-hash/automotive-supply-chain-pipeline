@@ -13,10 +13,26 @@ Data Sources → Azure Data Lake (Bronze) → Databricks (Silver) → Databricks
 - **Data Format:** Delta Lake
 - **Version Control:** Git/GitHub
 
-## Layers
-- **Bronze:** Raw data ingestion (CSV/JSON from suppliers)
-- **Silver:** Data quality checks, cleansing, standardization
-- **Gold:** Star schema for analytics (fact_deliveries, dim_supplier, dim_product, dim_date)
+##  Data Layers
+
+###  Bronze Layer
+- Raw ingestion from supplier files (CSV/JSON)
+- Stored in Delta format
+- Includes audit columns (ingestion timestamp, source)
+
+###  Silver Layer *(In Progress)*
+- Data cleansing (null handling, duplicates removal)
+- Standardization of formats
+- Data quality validation
+
+###  Gold Layer *(Planned)*
+- Star schema design:
+  - `fact_deliveries`
+  - `dim_supplier`
+  - `dim_product`
+  - `dim_date`
+- Optimized for analytics and reporting
+
 
 ## Setup Instructions
 Coming soon - Week 1 in progress!
@@ -27,16 +43,29 @@ Coming soon - Week 1 in progress!
 ├── docs/              # Documentation
 └── README.md          # This file
 ## Progress Log
-- [x] Day 1: Azure setup (ADLS Gen2, Resource Group)
-- [x] Day 2: Databricks workspace + GitHub setup
-- [x] Day 3: Bronze layer implementation ✨
-  - Mounted ADLS to Databricks
-  - Created bronze Delta table with audit columns
-  - Loaded supplier delivery data (10 records)
-- [ ] Day 4: Silver layer implementation
+
+- [x] Day 1: Azure setup (ADLS Gen2, Resource Group)  
+- [x] Day 2: Databricks workspace + GitHub integration  
+- [x] Day 3: Bronze layer implementation ✨  
+  - Mounted ADLS to Databricks  
+  - Created Bronze Delta table  
+  - Loaded supplier delivery dataset (10 records)  
+- [ ] Day 4: Silver layer implementation  
+
+---
+
+##  Key Learnings
+- Implemented medallion architecture using Azure + Databricks  
+- Built data ingestion pipeline using Delta Lake  
+- Practiced Git-based version control for data projects  
+
+---
 
 ## Author
-Animesh Mishra - Data Engineer in Training
+**Animesh Mishra**  
+Aspiring Data Engineer | Building end-to-end data pipelines
 
-## License
+---
+
+## 📜 License
 MIT License
