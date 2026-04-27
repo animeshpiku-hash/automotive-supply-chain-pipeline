@@ -2,19 +2,18 @@
 # Cell 1: Mount Configuration
 
 # 👉 REPLACE THESE VALUES
-# Cell 1: Config
-
 storage_account_name = "adlssupplychainam"
 storage_account_key = "YOUR_ACCESS_KEY"
 
+# Container names
 bronze_container = "bronze"
 silver_container = "silver"
 gold_container = "gold"
 
-spark.conf.set(
-    f"fs.azure.account.key.{storage_account_name}.dfs.core.windows.net",
-    storage_account_key
-)
+# Configuration dictionary
+configs = {
+    f"fs.azure.account.key.{storage_account_name}.dfs.core.windows.net": storage_account_key
+}
 
 print(f"✓ Configuration set for storage account: {storage_account_name}")
 
@@ -94,12 +93,12 @@ for field in df_raw.schema.fields:
 # Cell 6: Add Audit Columns
 # Track when data was ingested and from which file
 
-from pyspark.sql.functions import current_timestamp, input_file_name, lit
+from pyspark.sql.functions import col
 
 df_bronze = df_raw \
     .withColumn("ingestion_timestamp", current_timestamp()) \
-    .withColumn("source_file", input_file_name()) \
-    .withColumn("ingestion_date", lit("2024-01-25")) # Today's date
+    .withColumn("source_file", col("_metadata.file_path")) \
+    .withColumn("ingestion_date", lit("2024-01-25"))  # Today's date
 
 print("✓ Added audit columns:")
 print("  - ingestion_timestamp: When data entered the data lake")
