@@ -50,14 +50,19 @@ Coming soon - Week 1 in progress!
   - Mounted ADLS to Databricks  
   - Created Bronze Delta table  
   - Loaded supplier delivery dataset (10 records)  
-- [ ] Day 4: Silver layer implementation  
+- [x] Day 4: Silver layer implementation ✨
+  - Data quality checks (nulls, duplicates, ranges)
+  - Cleansing and standardization
+  - Created silver Delta table
 
 ---
 
-##  Key Learnings
-- Implemented medallion architecture using Azure + Databricks  
-- Built data ingestion pipeline using Delta Lake  
-- Practiced Git-based version control for data projects  
+## Key Learnings
+- Implemented medallion architecture (Bronze → Silver) using Azure Databricks and Delta Lake  
+- Built Bronze layer ingestion pipeline with audit columns and scalable storage design  
+- Performed data quality checks (null handling, duplicate detection, value validation) in Silver layer  
+- Applied data cleansing and standardization techniques using PySpark  
+- Managed project using Git with structured commits and version control practices  
 
 ---
 
